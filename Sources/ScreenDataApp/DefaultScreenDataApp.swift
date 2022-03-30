@@ -27,6 +27,11 @@ public struct DefaultScreenDataApp: ScreenDataApp {
         configureScreenData()
     }
     
+    public init(baseID: String) {
+        DefaultScreenDataApp.baseID = baseID
+        configureScreenData()
+    }
+    
     public func configureScreenProvider() -> ScreenProviding? { nil }
     public func configureScreenStore() -> ScreenStoring? { nil }
     public func configureCustomViews() -> [SDCustomizedView] { [] }
