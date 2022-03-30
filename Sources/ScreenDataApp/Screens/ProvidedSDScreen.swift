@@ -38,6 +38,14 @@ public struct ProvidedSDScreen: View {
     
     public var baseID: String?
     
+    private var applicationWillEnterForegroundNotification: Notification.Name {
+        #if os(iOS)
+        UIApplication.willEnterForegroundNotification
+        #else
+        WKExtension.applicationWillEnterForegroundNotification
+        #endif
+    }
+    
     public init(baseID: String?) {
         self.baseID = baseID
     }
@@ -52,7 +60,7 @@ public struct ProvidedSDScreen: View {
                     store.fetch(screenID: baseID)
                 }
             }
-            .onReceive(NotificationCenter.default.publisher(for: UIApplication.willEnterForegroundNotification)) { _ in
+            .onReceive(NotificationCenter.default.publisher(for: applicationWillEnterForegroundNotification)) { _ in
                 if let baseID = baseID {
                     store.fetch(screenID: baseID)
                 }

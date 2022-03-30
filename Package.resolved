@@ -59,8 +59,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/ServerDriven/ScreenDataUI-ios",
       "state" : {
-        "branch" : "develop",
-        "revision" : "7a928d7795c57bc6d35d3a5273e2af3654bfdbd8"
+        "branch" : "watchos/support",
+        "revision" : "95d414cba6457748a63fca7b758a54f658fe726a"
       }
     },
     {

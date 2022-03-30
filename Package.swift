@@ -6,19 +6,21 @@ import PackageDescription
 let package = Package(
     name: "ScreenDataApp",
     platforms: [
-        .iOS(.v14)
+        .iOS(.v14),
+        .watchOS(.v7)
     ],
     products: [
         // Products define the executables and libraries a package produces, and make them visible to other packages.
         .library(
             name: "ScreenDataApp",
-            targets: ["ScreenDataApp"]),
+            targets: ["ScreenDataApp"]
+        )
     ],
     dependencies: [
         // Dependencies declare other packages that this package depends on.
         .package(
             url: "https://github.com/ServerDriven/ScreenDataUI-ios",
-            branch: "develop"
+            branch: "watchos/support"
         )
     ],
     targets: [
@@ -33,6 +35,6 @@ let package = Package(
         .testTarget(
             name: "ScreenDataAppTests",
             dependencies: ["ScreenDataApp"]
-        ),
+        )
     ]
 )
