@@ -13,10 +13,18 @@ import SwiftUI
 public struct DefaultScreenDataApp: ScreenDataApp {
     public var chrono: Chronicle = Chronicle(label: "ScreenDataApp.DefaultScreenDataApp")
     
-    public static var baseID: String? = nil
+    public var baseID: String?
+    public var screenProvider: ScreenProviding?
+    public var screenStore: ScreenStoring?
+    public var customViews: [SDCustomizedView]
+    public var imageProvider: SDImageProviding
+    public var imageStore: SDImageStoring?
+    public var defaultForegroundColor: Color?
+    public var buttonActions: [ScreenDataActionable]
+    public var fonts: ScreenDataFonts
     
     public var rootView: AnyView {
-        guard let baseID = DefaultScreenDataApp.baseID else {
+        guard let baseID = baseID else {
             return AnyView(Text("Please set `DefaultScreenDataApp.baseID`"))
         }
         
@@ -24,21 +32,50 @@ public struct DefaultScreenDataApp: ScreenDataApp {
     }
     
     public init() {
+        self.baseID = nil
+        self.screenProvider = nil
+        self.screenStore = nil
+        self.customViews = []
+        self.imageProvider = SDImageURLProvider()
+        self.imageStore = nil
+        self.defaultForegroundColor = nil
+        self.buttonActions = []
+        self.fonts = ScreenDataFonts()
+        
         configureScreenData()
     }
     
-    public init(baseID: String) {
-        DefaultScreenDataApp.baseID = baseID
+    public init(
+        baseID: String,
+        screenProvider: ScreenProviding? = nil,
+        screenStore: ScreenStoring? = nil,
+        customViews: [SDCustomizedView] = [],
+        imageProvider: SDImageProviding = SDImageURLProvider(),
+        imageStore: SDImageStoring? = nil,
+        defaultForegroundColor: Color? = nil,
+        buttonActions: [ScreenDataActionable] = [],
+        fonts: ScreenDataFonts = ScreenDataFonts()
+    ) {
+        self.baseID = baseID
+        self.screenProvider = screenProvider
+        self.screenStore = screenStore
+        self.customViews = customViews
+        self.imageProvider = imageProvider
+        self.imageStore = imageStore
+        self.defaultForegroundColor = defaultForegroundColor
+        self.buttonActions = buttonActions
+        self.fonts = fonts
+        
         configureScreenData()
     }
     
-    public func configureScreenProvider() -> ScreenProviding? { nil }
-    public func configureScreenStore() -> ScreenStoring? { nil }
-    public func configureCustomViews() -> [SDCustomizedView] { [] }
-    public func configureImageProvider() -> SDImageProviding { SDImageURLProvider() }
-    public func configureImageStore() -> SDImageStoring? { nil }
-    public func configureDefaultForegroundColor() -> Color? { nil }
-    public func configureButtonActions() -> [ScreenDataActionable] { [] }
-    public func configureFonts() -> ScreenDataFonts { ScreenDataFonts() }
+    public func configureScreenProvider() -> ScreenProviding? { screenProvider }
+    public func configureScreenStore() -> ScreenStoring? { screenStore }
+    public func configureCustomViews() -> [SDCustomizedView] { customViews }
+    public func configureImageProvider() -> SDImageProviding { imageProvider }
+    public func configureImageStore() -> SDImageStoring? { imageStore }
+    public func configureDefaultForegroundColor() -> Color? { defaultForegroundColor }
+    public func configureButtonActions() -> [ScreenDataActionable] { buttonActions }
+    public func configureFonts() -> ScreenDataFonts { fonts }
 }
 
