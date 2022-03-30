@@ -36,7 +36,7 @@ struct DemoScreenDataApp: App {
 ```
 
 
-### 2) Conform the @main App to be a `ScreenDataApp`
+### 2) Conform the `@main App` to be a `ScreenDataApp`
 
 ```swift
 import Chronicle
