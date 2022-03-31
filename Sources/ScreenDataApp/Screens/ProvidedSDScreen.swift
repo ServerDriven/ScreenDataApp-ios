@@ -12,6 +12,14 @@ import ScreenDataNavigation
 import SwiftUI
 
 public struct ProvidedSDScreen: View {
+    public static var applicationWillEnterForegroundNotification: Notification.Name {
+        #if os(iOS)
+        UIApplication.willEnterForegroundNotification
+        #else
+        WKExtension.applicationWillEnterForegroundNotification
+        #endif
+    }
+    
     class ScreenProviderStore: ObservableObject {
         private var task: AnyCancellable?
         
@@ -52,7 +60,11 @@ public struct ProvidedSDScreen: View {
                     store.fetch(screenID: baseID)
                 }
             }
-            .onReceive(NotificationCenter.default.publisher(for: UIApplication.willEnterForegroundNotification)) { _ in
+            .onReceive(
+                NotificationCenter.default.publisher(
+                    for: ProvidedSDScreen.applicationWillEnterForegroundNotification
+                )
+            ) { _ in
                 if let baseID = baseID {
                     store.fetch(screenID: baseID)
                 }

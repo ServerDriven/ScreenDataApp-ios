@@ -50,8 +50,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/ServerDriven/ScreenDataNavigation-swift",
       "state" : {
-        "branch" : "develop",
-        "revision" : "bd2b631dd370a52fd62f378e578bd85fa6bc25b7"
+        "revision" : "5401d904153ee07e12d574cb813e5f92ac77be19",
+        "version" : "1.1.0"
       }
     },
     {
@@ -59,8 +59,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/ServerDriven/ScreenDataUI-ios",
       "state" : {
-        "branch" : "develop",
-        "revision" : "7a928d7795c57bc6d35d3a5273e2af3654bfdbd8"
+        "revision" : "539071606c45e6b77564201b134b1b01c9925a05",
+        "version" : "1.0.0"
       }
     },
     {
