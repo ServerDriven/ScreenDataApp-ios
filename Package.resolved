@@ -50,8 +50,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/ServerDriven/ScreenDataNavigation-swift",
       "state" : {
-        "branch" : "develop",
-        "revision" : "bd2b631dd370a52fd62f378e578bd85fa6bc25b7"
+        "revision" : "5401d904153ee07e12d574cb813e5f92ac77be19",
+        "version" : "1.1.0"
       }
     },
     {
@@ -59,8 +59,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/ServerDriven/ScreenDataUI-ios",
       "state" : {
-        "branch" : "watchos/support",
-        "revision" : "95d414cba6457748a63fca7b758a54f658fe726a"
+        "revision" : "539071606c45e6b77564201b134b1b01c9925a05",
+        "version" : "1.0.0"
       }
     },
     {
