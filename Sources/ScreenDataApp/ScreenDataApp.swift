@@ -11,6 +11,7 @@ public protocol ScreenDataApp: App {
     var rootView: AnyView { get }
     
     func configureScreenData()
+    func configureDebugging() -> Bool
     func configureScreenProvider() -> ScreenProviding?
     func configureScreenStore() -> ScreenStoring?
     func configureCustomViews() -> [SDCustomizedView]
@@ -34,6 +35,8 @@ public extension ScreenDataApp {
     }
     
     func configureScreenData() {
+        SDScreen.isDebugging = configureDebugging()
+        
         SDScreenProvider.default = configureScreenProvider()
         SDScreenStore.default = configureScreenStore()
         
@@ -59,4 +62,6 @@ public extension ScreenDataApp {
         SDFont.footnoteFont = screenDataFonts.footnoteFont
         SDFont.captionFont = screenDataFonts.captionFont
     }
+    
+    func configureDebugging() -> Bool { false }
 }

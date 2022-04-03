@@ -14,6 +14,7 @@ public struct DefaultScreenDataApp: ScreenDataApp {
     public var chrono: Chronicle = Chronicle(label: "ScreenDataApp.DefaultScreenDataApp")
     
     public var baseID: String?
+    public var isDebugging: Bool
     public var screenProvider: ScreenProviding?
     public var screenStore: ScreenStoring?
     public var customViews: [SDCustomizedView]
@@ -33,6 +34,7 @@ public struct DefaultScreenDataApp: ScreenDataApp {
     
     public init() {
         self.baseID = nil
+        self.isDebugging = false
         self.screenProvider = nil
         self.screenStore = nil
         self.customViews = []
@@ -47,6 +49,7 @@ public struct DefaultScreenDataApp: ScreenDataApp {
     
     public init(
         baseID: String,
+        isDebugging: Bool = false,
         screenProvider: ScreenProviding? = nil,
         screenStore: ScreenStoring? = nil,
         customViews: [SDCustomizedView] = [],
@@ -57,6 +60,7 @@ public struct DefaultScreenDataApp: ScreenDataApp {
         fonts: ScreenDataFonts = ScreenDataFonts()
     ) {
         self.baseID = baseID
+        self.isDebugging = isDebugging
         self.screenProvider = screenProvider
         self.screenStore = screenStore
         self.customViews = customViews
@@ -69,6 +73,7 @@ public struct DefaultScreenDataApp: ScreenDataApp {
         configureScreenData()
     }
     
+    public func configureDebugging() -> Bool { isDebugging }
     public func configureScreenProvider() -> ScreenProviding? { screenProvider }
     public func configureScreenStore() -> ScreenStoring? { screenStore }
     public func configureCustomViews() -> [SDCustomizedView] { customViews }
