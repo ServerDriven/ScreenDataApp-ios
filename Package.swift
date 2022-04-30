@@ -20,7 +20,7 @@ let package = Package(
         // Dependencies declare other packages that this package depends on.
         .package(
             url: "https://github.com/ServerDriven/ScreenDataUI-ios",
-            from: "1.1.0"
+            from: "1.1.2"
         )
     ],
     targets: [
