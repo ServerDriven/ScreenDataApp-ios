@@ -59,8 +59,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/ServerDriven/ScreenDataUI-ios",
       "state" : {
-        "revision" : "6bc41eacb6405c894e1e0e51d3c53351a04cc113",
-        "version" : "1.1.0"
+        "revision" : "fb0730ea14c856ee994b412d6e8ff4e794dfe388",
+        "version" : "1.1.1"
       }
     },
     {

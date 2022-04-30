@@ -53,7 +53,11 @@ public struct ProvidedSDScreen: View {
     public var body: some View {
         if let screen = store.screen {
             NavigationView {
-                SDScreen(screen: screen)
+                if SDScreen.isDebugging {
+                    DebugSDScreen(screen: screen)
+                } else {
+                    SDScreen(screen: screen)
+                }
             }
             .onAppear {
                 if let baseID = baseID {
